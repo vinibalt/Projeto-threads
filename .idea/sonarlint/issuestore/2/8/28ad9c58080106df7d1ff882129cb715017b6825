@@ -1,0 +1,10 @@
+
+L	java:S106"+Replace this use of System.out by a logger.(ÈÆ‰åøÿÿÿÿ8¶üùä¡2
+N
+java:S1602"",Remove useless curly braces around statement(ÿ¶ÅŠıÿÿÿÿ8¸üùä¡2
+L	java:S106("+Replace this use of System.out by a logger.(£´–¡ùÿÿÿÿ8¹üùä¡2
+J	java:S108-")Either remove or fill this block of code.(ø‡¨Öÿÿÿÿÿ8¹üùä¡2
+G	java:S1063"+Replace this use of System.out by a logger.(¿ª†¤8ºüùä¡2
+G	java:S1064"+Replace this use of System.out by a logger.(êÆ³§8ºüùä¡2
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¼üùä¡2

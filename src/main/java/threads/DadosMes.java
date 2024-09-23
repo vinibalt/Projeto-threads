@@ -1,6 +1,6 @@
 package threads;
 
-public class DadosAno {
+public class DadosMes {
     private double temperaturaMinima = Double.MAX_VALUE;
     private double temperaturaMaxima = Double.MIN_VALUE;
     private double somaTemperaturas = 0.0;

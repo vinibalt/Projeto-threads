@@ -53,8 +53,9 @@ public class LeitorArquivoTarefa implements Runnable {
         String[] campos = linha.split(",");
         String pais = campos[0];
         String cidade = campos[1];
+        int mes = Integer.parseInt(campos[2]);
         int ano = Integer.parseInt(campos[4]);
         double temperatura = Double.parseDouble(campos[5]);
-        return new RegistroTemperatura(pais, cidade, ano, temperatura);
+        return new RegistroTemperatura(pais, cidade, ano, mes, Math.round(temperatura));
     }
 }

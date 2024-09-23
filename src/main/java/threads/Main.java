@@ -8,9 +8,15 @@ public class Main {
         GerenciadorThreadsPorAno gerenciadorThreadsPorAno = new GerenciadorThreadsPorAno();
         GerenciadorThreads gerenciadorThreads = new GerenciadorThreads();
 
-        gerenciadorThreads.executarExperimento(versaoExperimento);
+        for (versaoExperimento = 1; versaoExperimento <= 10; versaoExperimento++){
+           // gerenciadorThreads.executarExperimento(versaoExperimento);
+        }
 
-        gerenciadorThreadsPorAno.executarExperimento(versaoExperimento);
+        for (versaoExperimento = 11; versaoExperimento <= 20; versaoExperimento++){
+            gerenciadorThreadsPorAno.executarExperimento(versaoExperimento);
+        }
+
+
 
 
 

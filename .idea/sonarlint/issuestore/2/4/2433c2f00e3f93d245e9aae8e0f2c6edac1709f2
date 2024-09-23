@@ -1,0 +1,8 @@
+
+
+java:S2677"LUse or store the value returned from "readLine" instead of throwing it away.(™¸¡8”´ìã¡2J$595bd43b-ea2a-45fb-9165-4198023d3dee
+r	java:S106"+Replace this use of System.out by a logger.(ÆÒ…üÿÿÿÿ8–´ìã¡2J$736a2e95-cdcb-456a-bb94-7bd878ce6ab2
+p	java:S108%")Either remove or fill this block of code.(ø‡¨Öÿÿÿÿÿ8˜´ìã¡2J$36f7c253-6894-4b6e-b692-62df49a15e3b
+m	java:S106'"+Replace this use of System.out by a logger.(³ÅÅ®8˜´ìã¡2J$df5d923e-6a23-43bc-b265-65e3b7b91520
+r	java:S1060"+Replace this use of System.out by a logger.(çÉ·ûÿÿÿÿ8™´ìã¡2J$f6eaaaf1-a1f7-408f-815a-e986f14cd01b
+r	java:S1061"+Replace this use of System.out by a logger.(Ú¢¡Àşÿÿÿÿ8š´ìã¡2J$1580ba79-8e9c-4b5f-8959-2c4fc7973896

@@ -22,44 +22,57 @@ public class LeitorPorCidadeTarefa implements Runnable {
             String cidade = "";
             String pais = "";
             br.readLine();
-            Map<Integer, DadosAno> dadosPorAno = new HashMap<>();
+            Map<Integer, Map<Integer, DadosMes>> dadosPorMesPorAno = new HashMap<>();
 
             while ((linha = br.readLine()) != null) {
                 RegistroTemperatura registro = parseLinha(linha);
                 cidade = registro.getCidade();
                 pais = registro.getPais();
-                dadosPorAno.computeIfAbsent(registro.getAno(), ano -> new DadosAno()).adicionarTemperatura(registro.getTemperatura());
+
+                dadosPorMesPorAno.computeIfAbsent(registro.getAno(), ano -> new HashMap<>())
+                        .computeIfAbsent(registro.getMes(), mes -> new DadosMes())
+                        .adicionarTemperatura(registro.getTemperatura());
             }
 
-            ExecutorService executorServiceAnos = Executors.newFixedThreadPool(25);  // Até 25 anos (1995-2020)
+            ExecutorService executorServiceMeses = Executors.newFixedThreadPool(25);  // Até 25 threads para anos
 
-            for (Map.Entry<Integer, DadosAno> entry : dadosPorAno.entrySet()) {
-                int ano = entry.getKey();
-                DadosAno dados = entry.getValue();
-                String finalPais = pais;
+            for (Map.Entry<Integer, Map<Integer, DadosMes>> entryAno : dadosPorMesPorAno.entrySet()) {
+                int ano = entryAno.getKey();
+                Map<Integer, DadosMes> dadosPorMes = entryAno.getValue();
                 String finalCidade = cidade;
-                executorServiceAnos.submit(() -> processarAno(finalPais, finalCidade, ano, dados));
+                String finalPais = pais;
+
+                for (Map.Entry<Integer, DadosMes> entryMes : dadosPorMes.entrySet()) {
+                    int mes = entryMes.getKey();
+                    DadosMes dadosMes = entryMes.getValue();
+
+                    executorServiceMeses.submit(() -> processarMes(finalPais, finalCidade, ano, mes, dadosMes));
+                }
             }
 
-            executorServiceAnos.shutdown();
-            while (!executorServiceAnos.isTerminated()) {}
+            executorServiceMeses.shutdown();
+            while (!executorServiceMeses.isTerminated()) {}
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void processarAno(String pais, String cidade, int ano, DadosAno dadosAno) {
-        System.out.println("País: " + pais + ", Cidade: " + cidade + ", Ano: " + ano + ", Temp. Mínima: " + dadosAno.getTemperaturaMinima() +
-                ", Temp. Máxima: " + dadosAno.getTemperaturaMaxima());
+    private void processarMes(String pais, String cidade, int ano, int mes, DadosMes dadosMes) {
+        double mediaTemperatura = dadosMes.calcularMedia();
+        System.out.println("País: " + pais + ", Cidade: " + cidade + ", Ano: " + ano + ", Mês: " + mes +
+                ", Temp. Mínima: " + Math.round(dadosMes.getTemperaturaMinima()) +
+                ", Temp. Máxima: " + Math.round(dadosMes.getTemperaturaMaxima()) +
+                ", Temp. Média: " + Math.round(mediaTemperatura));
     }
 
     private RegistroTemperatura parseLinha(String linha) {
         String[] campos = linha.split(",");
         String pais = campos[0];
         String cidade = campos[1];
+        int mes = Integer.parseInt(campos[2]);
         int ano = Integer.parseInt(campos[4]);
         double temperatura = Double.parseDouble(campos[5]);
-        return new RegistroTemperatura(pais, cidade, ano, temperatura);
+        return new RegistroTemperatura(pais, cidade, ano, mes, temperatura);
     }
 }
