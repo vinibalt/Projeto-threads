@@ -18,7 +18,7 @@ public class GerenciadorThreads {
 
 
         File[] arquivos = Util.obterArquivosCSV(diretorioCSV);
-
+        //Adicionar a quebra de arquivos. Dividir o número de arquivos pelo número de Threads
 
         if (arquivos.length == 0) {
             System.out.println("Nenhum arquivo CSV disponível para processamento.");

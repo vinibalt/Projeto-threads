@@ -14,7 +14,7 @@ public class GerenciadorThreadsPorAno {
         ExecutorService executorServiceCidade = Executors.newFixedThreadPool(numThreadsCidade);
 
         List<File> arquivos = List.of(Util.obterArquivosCSV("src/input"));
-
+        //Adicionar a quebra de arquivos. Dividir o número de arquivos pelo número de Threads
         Instant inicioExperimento = Instant.now();
 
         for (File arquivo : arquivos) {
