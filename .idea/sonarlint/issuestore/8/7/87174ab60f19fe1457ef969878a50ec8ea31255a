@@ -1,7 +1,6 @@
 
-J
-java:S1604"(Make this anonymous inner class a lambda(×¡Š‘úÿÿÿÿ8º’ÊÜ¡2
-W
-java:S1118":Add a private constructor to hide the implicit public one.(×¼­Æ8Ğ“ÊÜ¡2
-F	java:S106"+Replace this use of System.out by a logger.(İ¥ÅM8ı“ÊÜ¡2
-G	java:S106"+Replace this use of System.out by a logger.(ªÒí8†”ÊÜ¡2
+p
+java:S1604"(Make this anonymous inner class a lambda(¥€ãĞÿÿÿÿÿ8¾¨Ó¤¢2J$9adff13e-a9b6-4e51-8ab5-6c0a01761bb3
+}
+java:S1118":Add a private constructor to hide the implicit public one.(×¼­Æ8Ø¨Ó¤¢2J$3bed30b9-9f02-4839-a628-b034b698b69d
+m	java:S106"+Replace this use of System.out by a logger.(İˆÿ£8î¨Ó¤¢2J$9122bdd7-2f76-4f83-a445-eae3c4bce727

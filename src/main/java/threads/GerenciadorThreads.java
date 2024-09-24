@@ -13,37 +13,30 @@ public class GerenciadorThreads {
         int numThreads = obterNumeroThreadsPorVersao(versao);
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
 
-
         String diretorioCSV = "src/input";
-
-
         File[] arquivos = Util.obterArquivosCSV(diretorioCSV);
-        //Adicionar a quebra de arquivos. Dividir o número de arquivos pelo número de Threads
 
         if (arquivos.length == 0) {
             System.out.println("Nenhum arquivo CSV disponível para processamento.");
             return;
         }
 
+        int numArquivosPorThread = (int) Math.ceil((double) arquivos.length / numThreads);
 
         Instant inicioExperimento = Instant.now();
 
+        for (int i = 0; i < numThreads; i++) {
+            int inicio = i * numArquivosPorThread;
+            int fim = Math.min(inicio + numArquivosPorThread, arquivos.length);
 
-        for (File arquivo : arquivos) {
-            Instant inicioArquivo = Instant.now();
-            executorService.submit(() -> {
-                new LeitorArquivoTarefa(arquivo).run();
-            });
-            Instant fimArquivo = Instant.now();
+            File[] arquivosParaThread = new File[fim - inicio];
+            System.arraycopy(arquivos, inicio, arquivosParaThread, 0, fim - inicio);
 
-            Duration duracaoArquivo = Duration.between(inicioArquivo, fimArquivo);
-            System.out.println("Tempo de execução para o arquivo " + arquivo.getName() + ": " + duracaoArquivo.toMillis() + " ms");
+            executorService.submit(() -> new LeitorArquivoTarefa(arquivosParaThread).run());
         }
-
 
         executorService.shutdown();
         while (!executorService.isTerminated()) {}
-
 
         Instant fimExperimento = Instant.now();
         Duration duracaoExperimento = Duration.between(inicioExperimento, fimExperimento);
@@ -51,7 +44,6 @@ public class GerenciadorThreads {
         System.out.println("Experimento " + versao + " concluído.");
         System.out.println("Tempo total de execução: " + duracaoExperimento.toMillis() + " milissegundos.");
     }
-
 
     private int obterNumeroThreadsPorVersao(int versao) {
         switch (versao) {

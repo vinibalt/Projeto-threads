@@ -1,0 +1,22 @@
+Rodada 1:
+Versão 1: 3592 ms
+Versão 2: 4697 ms
+Versão 3: 3267 ms
+Versão 4: 2277 ms
+Versão 5: 2092 ms
+Versão 6: 1903 ms
+Versão 7: 2124 ms
+Versão 8: 1905 ms
+Versão 9: 2386 ms
+Versão 10: 3219 ms
+Versão 11: 5510 ms
+Versão 12: 3879 ms
+Versão 13: 3852 ms
+Versão 14: 2224 ms
+Versão 15: 1531 ms
+Versão 16: 2065 ms
+Versão 17: 2398 ms
+Versão 18: 2241 ms
+Versão 19: 1999 ms
+Versão 20: 5083 ms
+

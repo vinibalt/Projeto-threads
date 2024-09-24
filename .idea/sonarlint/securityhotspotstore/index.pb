@@ -27,3 +27,7 @@ c
 3src/main/java/threads/GerenciadorThreadsPorAno.java,c/3/c3a27baedf1979e65e9eb5c08720c6ad1439489d
 ]
 -src/main/java/threads/GerenciadorThreads.java,2/8/28ad9c58080106df7d1ff882129cb715017b6825
+C
+tempos_execucao.txt,b/b/bbc6d209b7c3f8e7a653cf3c7d162f94e47ba66c
+E
+tempos_execucao69.txt,6/b/6b9b32167c0cf1878e422443cc159ff4e009bce9

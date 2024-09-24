@@ -1,8 +1,3 @@
 
-c
-java:S1854	"FRemove this useless assignment to local variable "gerenciadorThreads".(è‘∞ò8¢—≈„°2
-T
-java:S1481	"7Remove this unused "gerenciadorThreads" local variable.(è‘∞ò8¶—≈„°2
-X	java:S125"<This block of commented-out lines of code should be removed.(»ƒÂï8®—≈„°2
-x
-java:S1128"0Remove this unused import 'java.io.IOException'.(™∫ª⁄˝ˇˇˇˇ8ñôñ„°2J$4418e9b9-c2a1-4056-abe1-b77a030793aa
+l
+java:S2140")Use "java.util.Random.nextInt()" instead.(ÙÍä‹8‘˘Ö•¢2J$69cb6b76-77bd-415a-af51-92203279633a

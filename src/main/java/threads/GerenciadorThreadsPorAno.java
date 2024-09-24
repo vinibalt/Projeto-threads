@@ -1,11 +1,12 @@
 package threads;
 
 import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.List;
 import java.time.Instant;
 import java.time.Duration;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class GerenciadorThreadsPorAno {
 
@@ -13,12 +14,17 @@ public class GerenciadorThreadsPorAno {
         int numThreadsCidade = obterNumeroThreadsPorVersao(versao);
         ExecutorService executorServiceCidade = Executors.newFixedThreadPool(numThreadsCidade);
 
-        List<File> arquivos = List.of(Util.obterArquivosCSV("src/input"));
-        //Adicionar a quebra de arquivos. Dividir o número de arquivos pelo número de Threads
+        File[] arquivos = Util.obterArquivosCSV("src/input");
+        List<List<File>> arquivosDivididos = dividirArquivosPorThread(arquivos, numThreadsCidade);
+
         Instant inicioExperimento = Instant.now();
 
-        for (File arquivo : arquivos) {
-            executorServiceCidade.submit(new LeitorPorCidadeTarefa(arquivo.getPath()));
+        for (List<File> grupoArquivos : arquivosDivididos) {
+            executorServiceCidade.submit(() -> {
+                for (File arquivo : grupoArquivos) {
+                    new LeitorPorCidadeTarefa(arquivo.getPath()).run();
+                }
+            });
         }
 
         executorServiceCidade.shutdown();
@@ -29,6 +35,21 @@ public class GerenciadorThreadsPorAno {
 
         System.out.println("Experimento " + versao + " concluído.");
         System.out.println("Tempo total de execução: " + duracaoExperimento.toMillis() + " milissegundos.");
+    }
+
+    private List<List<File>> dividirArquivosPorThread(File[] arquivos, int numThreads) {
+        List<List<File>> arquivosDivididos = new ArrayList<>();
+        int numArquivosPorThread = (int) Math.ceil((double) arquivos.length / numThreads);
+
+        for (int i = 0; i < arquivos.length; i += numArquivosPorThread) {
+            List<File> grupo = new ArrayList<>();
+            for (int j = i; j < i + numArquivosPorThread && j < arquivos.length; j++) {
+                grupo.add(arquivos[j]);
+            }
+            arquivosDivididos.add(grupo);
+        }
+
+        return arquivosDivididos;
     }
 
     private int obterNumeroThreadsPorVersao(int versao) {

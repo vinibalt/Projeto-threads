@@ -1,0 +1,44 @@
+Rodada 1:
+Versão 1: 3519 ms
+Versão 2: 1552 ms
+Versão 3: 1696 ms
+Versão 4: 2579 ms
+Versão 5: 2166 ms
+Versão 6: 2349 ms
+Versão 7: 2349 ms
+Versão 8: 2212 ms
+Versão 9: 2221 ms
+Versão 10: 1996 ms
+Versão 11: 4180 ms
+Versão 12: 1526 ms
+Versão 13: 1172 ms
+Versão 14: 1108 ms
+Versão 15: 1850 ms
+Versão 16: 2415 ms
+Versão 17: 2006 ms
+Versão 18: 1497 ms
+Versão 19: 2322 ms
+Versão 20: 1362 ms
+
+Rodada 2:
+Versão 1: 2325 ms
+Versão 2: 2070 ms
+Versão 3: 2235 ms
+Versão 4: 2511 ms
+Versão 5: 2539 ms
+Versão 6: 2330 ms
+Versão 7: 2247 ms
+Versão 8: 2410 ms
+Versão 9: 2163 ms
+Versão 10: 2184 ms
+Versão 11: 7283 ms
+Versão 12: 2445 ms
+Versão 13: 1801 ms
+Versão 14: 1851 ms
+Versão 15: 1639 ms
+Versão 16: 2132 ms
+Versão 17: 2443 ms
+Versão 18: 2980 ms
+Versão 19: 1983 ms
+Versão 20: 2397 ms
+

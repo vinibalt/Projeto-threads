@@ -8,7 +8,6 @@ public class ProcessadorDados {
     private static Map<String, Map<Integer, Map<Integer, DadosMes>>> mapaDados = new HashMap<>();
 
     public static synchronized void processar(RegistroTemperatura registro) {
-
         mapaDados.computeIfAbsent(registro.getCidade(), cidade -> new HashMap<>())
                 .computeIfAbsent(registro.getAno(), ano -> new HashMap<>())
                 .computeIfAbsent(registro.getMes(), mes -> new DadosMes())

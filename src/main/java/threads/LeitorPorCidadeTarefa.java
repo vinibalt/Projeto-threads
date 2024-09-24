@@ -34,7 +34,7 @@ public class LeitorPorCidadeTarefa implements Runnable {
                         .adicionarTemperatura(registro.getTemperatura());
             }
 
-            ExecutorService executorServiceMeses = Executors.newFixedThreadPool(25);  // Até 25 threads para anos
+            ExecutorService executorServiceMeses = Executors.newFixedThreadPool(25);
 
             for (Map.Entry<Integer, Map<Integer, DadosMes>> entryAno : dadosPorMesPorAno.entrySet()) {
                 int ano = entryAno.getKey();
