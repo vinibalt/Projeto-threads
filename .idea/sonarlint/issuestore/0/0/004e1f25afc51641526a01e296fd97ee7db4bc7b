@@ -1,11 +1,0 @@
-
-v
-java:S1118":Add a private constructor to hide the implicit public one.(à£ğíJ$ccc63f82-b3ff-4bb8-a83a-a3cb8186c3aa
-|
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ŸıªÃüÿÿÿÿ8‘±øä¡2J$3d4fdc81-4112-449c-b371-ea524430054d
-m	java:S106"+Replace this use of System.out by a logger.(æˆ™Ã8’±øä¡2J$7341da52-0bb6-426e-9ecf-3ad2ad3b5b50
-|
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ª¼“³ùÿÿÿÿ8“±øä¡2J$8df2d7d8-60b0-4074-84fe-13f9d9c2ec1e
-w
-java:S2864"4Iterate over the "entrySet" instead of the "keySet".(û—…8“±øä¡2J$95112a88-f27a-4940-8800-c54e9209fd52
-m	java:S106"+Replace this use of System.out by a logger.(ÉæÃ¾8”±øä¡2J$7f50886d-8913-4e98-a738-0d00a692de95
